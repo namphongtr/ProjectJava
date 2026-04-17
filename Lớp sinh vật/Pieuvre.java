@@ -4,23 +4,33 @@ public class Pieuvre extends Calmar implements CouleurChangeable{
     private int id;
 
 
-    public Pieuvre(String nom, int nbTentacules, String couleur) {
-        super(nom, nbTentacules);
+    public Pieuvre(int nbTentacules, String couleur) {
+        super(nbTentacules);
         this.couleur = couleur;
         this.id = ++cptPieu;
     }
-    
-    public Pieuvre(String nom) {
-        super(nom);
-        this.couleur = "grey";
+
+    public Pieuvre(String couleur) {
+        super();
+        this.couleur = couleur;
         this.id = ++cptPieu;
+    } 
+    
+    public Pieuvre() {
+        this("grey");
+    }
+
+    public String choisirCouleur(Couleur couleurs) {
+        int size = couleurs.getSize();
+        int randNum = (int)(Math.random()*size);
+        return couleurs.getCoul(randNum);
     }
 
     public void changerCouleur(Couleur couleurs) {
         int size = couleurs.getSize();
         int randNum = (int)(Math.random()*size);
         this.couleur = couleurs.getCoul(randNum);
-        System.out.println("Le pieuvre " + super.getNom() + " a change leur couleur a " + this.couleur);
+        System.out.println("Le pieuvre " + this.id + " a change leur couleur a " + this.couleur);
     }
 
     public static int getTotalChaque() {
@@ -30,4 +40,8 @@ public class Pieuvre extends Calmar implements CouleurChangeable{
     public String toString() {
         return super.toString() + " couleur : " + this.couleur + " et est le " + this.id + " Pieuvre";
     }
+
+    public void donnerNaissance() {
+        new Pieuvre();
+    };
 }

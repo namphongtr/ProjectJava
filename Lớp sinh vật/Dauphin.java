@@ -2,21 +2,13 @@ public class Dauphin extends MammifereMarine {
     private static int cptDau = 0;
     private int id;
 
-    public Dauphin(String nom, int size) {
-        super(nom, size);
+    public Dauphin(int size) {
+        super(size);
         this.id = ++cptDau;
     }
     
-    public Dauphin(String nom) {
-        this(nom, 5);
-    }
-
-    public void communiquer() {
-        System.out.println(this.getNom() + "sifflement");
-    }
-
-    public Dauphin donnerNaissance(String nom) {
-        return new Dauphin(nom, 5);
+    public void donnerNaissance() {
+        new Dauphin(5);
     }
 
     public static int getTotalChaque() {

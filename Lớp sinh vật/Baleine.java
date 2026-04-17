@@ -2,21 +2,14 @@ public class Baleine extends MammifereMarine {
     private static int cptBal = 0;
     private int id;
 
-    public Baleine(String nom, int size) {
-        super(nom,size);
+    public Baleine(int size) {
+        super(size);
         this.id = ++cptBal;
     }
 
-    public Baleine(String nom) {
-        this(nom,30);
-    }
 
-    public void communiquer() {
-        System.out.println(this.getNom() + "communiquer par Sonar");
-    }
-
-    public Baleine donnerNaissance(String nom) {
-        return new Baleine(nom, 5);
+    public void donnerNaissance() {
+        new Baleine(5);
     }
 
     public static int getTotalChaque() {
