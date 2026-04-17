@@ -13,18 +13,17 @@ public class Pieuvre extends Calmar implements CouleurChangeable{
     public Pieuvre(String nom) {
         super(nom);
         this.couleur = "grey";
-        this.id = cptPieu;
-        cptPieu++;
+        this.id = ++cptPieu;
     }
 
     public void changerCouleur(Couleur couleurs) {
         int size = couleurs.getSize();
         int randNum = (int)(Math.random()*size);
-
         this.couleur = couleurs.getCoul(randNum);
+        System.out.println("Le pieuvre " + super.getNom() + " a change leur couleur a " + this.couleur);
     }
 
-    public int getTotalChaque() {
+    public static int getTotalChaque() {
         return cptPieu;
     }
 

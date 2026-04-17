@@ -19,11 +19,11 @@ public class Dauphin extends MammifereMarine {
         return new Dauphin(nom, 5);
     }
 
-    public int getTotalChaque() {
+    public static int getTotalChaque() {
         return cptDau;
     }
 
     public String toString() {
-        return super.toString() + " est le " + this.id + " Dauphin";
+        return super.toString() + " et est le " + this.id + " Dauphin";
     }
 }

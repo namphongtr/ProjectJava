@@ -23,6 +23,4 @@ public abstract class VieMarine {
     public String toString() {
         return this.nom + " le " + this.id + " creature de la mer";
     }
-
-    public abstract int getTotalChaque(); //Prend le total creature de chaque Vie Marine
 }

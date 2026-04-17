@@ -4,9 +4,9 @@ public class Couleur {
     private static ArrayList<String> couleurs = new ArrayList<>();
 
     static {
-        couleurs.add("rouge");
-        couleurs.add("bleu");
-        couleurs.add("vert");
+        couleurs.add("red");
+        couleurs.add("blue");
+        couleurs.add("green");
         couleurs.add("grey");
     }  //Les couleurs default
 
@@ -15,7 +15,7 @@ public class Couleur {
             couleurs.add(coul);
             System.out.println("Ajouter le couleur " + coul);
         } else {
-            System.out.println(coul + " est deja exister");
+            System.out.println("Le couleur " + coul + " est deja exister");
         }
     } //Ajouter les couleurs
 

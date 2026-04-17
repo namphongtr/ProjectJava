@@ -19,11 +19,12 @@ public class Baleine extends MammifereMarine {
         return new Baleine(nom, 5);
     }
 
-    public int getTotalChaque() {
+    public static int getTotalChaque() {
         return cptBal;
     }
 
+
     public String toString() {
-        return super.toString() + " est le " + this.id + " Baleine";
+        return super.toString() + " et est le " + this.id + " Baleine";
     }
 }
