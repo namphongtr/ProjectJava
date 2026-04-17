@@ -1,3 +1,4 @@
+//Class des VieMarine
 public abstract class VieMarine {
     private String nom;
     private static int cpt = 0;
@@ -5,7 +6,7 @@ public abstract class VieMarine {
 
     public VieMarine(String nom) {
         this.nom = nom;
-        this.id = cpt;
+        this.id = cpt + 1;
         cpt++;
     }
     
