@@ -4,8 +4,7 @@ public class Baleine extends MammifereMarine {
 
     public Baleine(String nom, int size) {
         super(nom,size);
-        this.id = cptBal + 1;
-        cptBal++;
+        this.id = ++cptBal;
     }
 
     public Baleine(String nom) {

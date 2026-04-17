@@ -2,19 +2,21 @@
 public abstract class VieMarine {
     private String nom;
     private static int cpt = 0;
-    private int id;
+    private final int id;
 
     public VieMarine(String nom) {
-        this.nom = nom;
-        this.id = cpt + 1;
-        cpt++;
+        if (nom == null || nom.trim().isEmpty()) {
+        throw new IllegalArgumentException("Le nom ne peut pas laisser vide");
+    }
+    this.nom = nom.trim();
+    this.id = ++cpt;
     }
     
     public String getNom() {
         return this.nom;
     }
 
-    public int getTotalCreature() {
+    public static int getTotalCreature() {
         return cpt;
     }
 
@@ -22,5 +24,5 @@ public abstract class VieMarine {
         return this.nom + " le " + this.id + " creature de la mer";
     }
 
-    public abstract int getTotalChaque();
+    public abstract int getTotalChaque(); //Prend le total creature de chaque Vie Marine
 }

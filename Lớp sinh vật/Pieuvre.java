@@ -7,8 +7,7 @@ public class Pieuvre extends Calmar implements CouleurChangeable{
     public Pieuvre(String nom, int nbTentacules, String couleur) {
         super(nom, nbTentacules);
         this.couleur = couleur;
-        this.id = cptPieu + 1;
-        cptPieu++;
+        this.id = ++cptPieu;
     }
     
     public Pieuvre(String nom) {

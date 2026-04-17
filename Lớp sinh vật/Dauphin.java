@@ -4,8 +4,7 @@ public class Dauphin extends MammifereMarine {
 
     public Dauphin(String nom, int size) {
         super(nom, size);
-        this.id = cptDau + 1;
-        cptDau++;
+        this.id = ++cptDau;
     }
     
     public Dauphin(String nom) {
