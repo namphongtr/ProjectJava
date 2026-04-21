@@ -1,15 +1,21 @@
+package Project.Agent;
 public class Baleine extends MammifereMarine {
     private static int cptBal = 0;
     private int id;
 
-    public Baleine(int size) {
-        super(size);
+    public Baleine(int size, Terrain t, int lig, int col) {
+        super(size, t, lig, col);
+        this.id = ++cptBal;
+    }
+
+    public Baleine(int size, Terrain t) {
+        super(size, t);
         this.id = ++cptBal;
     }
 
 
-    public void donnerNaissance() {
-        new Baleine(5);
+    public void donnerNaissance(Terrain t) {
+        new Baleine(5, t);
     }
 
     public static int getTotalChaque() {
