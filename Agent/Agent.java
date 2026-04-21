@@ -12,19 +12,29 @@ public abstract class Agent {
     }
 
     public Agent(Terrain t) {
-        this(
-        t,
-        (int)(Math.random()*t.nbLignes) + 1,
-        (int)(Math.random()*t.nbColonnes) + 1
-    );
+        int lig, col;
+
+        do {
+            lig = (int)(Math.random() * t.nbLignes) + 1;
+            col = (int)(Math.random() * t.nbColonnes) + 1;
+        } while (!t.caseEstVide(lig, col));
+
+        this.terrain = t;
+        this.ligne = lig;
+        this.colonne = col;
     }
 
     public boolean seDeplacer(int lig, int col) {
-        if (terrain.sontValides(lig, col) && terrain.caseEstVide(lig, col)) {
-            this.ligne = lig;
-            this.colonne = col;
-            return true;
+        if (!terrain.sontValides(lig, col)) {
+            return false;
         }
-        return false;
+        int dLig = Math.abs(lig - this.ligne);
+        int dCol = Math.abs(col - this.colonne);
+        if (dLig + dCol != 1) {
+            return false;
+        }
+        this.ligne = lig;
+        this.colonne = col;
+        return true;
     }
 }

@@ -15,7 +15,8 @@ public class Baleine extends MammifereMarine {
 
 
     public void donnerNaissance(Terrain t) {
-        new Baleine(5, t);
+        Baleine bebe = new Baleine(5, t);
+        simulation.addAgent(bebe);
     }
 
     public static int getTotalChaque() {

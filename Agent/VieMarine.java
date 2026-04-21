@@ -3,8 +3,9 @@ package Project.Agent;
 public abstract class VieMarine extends Agent {
     private static int cpt = 0;
     private final int id;
+    private Simulation simulation;
 
-    public VieMarine(Terrain t, int lig, int col) {
+    public VieMarine(Terrain t, Simulation s, int lig, int col) {
         super(t, lig, col);
         this.id = ++cpt;
     }
@@ -23,4 +24,6 @@ public abstract class VieMarine extends Agent {
     }
 
     public abstract void donnerNaissance(Terrain t);
+
+
 }
