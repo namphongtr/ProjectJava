@@ -1,17 +1,18 @@
-package Project.Agent;
 
 public abstract class Agent {
     protected int ligne;
     protected int colonne;
     protected Terrain terrain;
+    private Simulation simulation;
 
-    public Agent(Terrain t, int lig, int col) {
+    public Agent(Terrain t, Simulation s, int lig, int col) {
         this.terrain = t;
         this.ligne = lig;
         this.colonne = col;
+        this.simulation = s;
     }
 
-    public Agent(Terrain t) {
+    public Agent(Terrain t, Simulation s) {
         int lig, col;
 
         do {
@@ -22,6 +23,7 @@ public abstract class Agent {
         this.terrain = t;
         this.ligne = lig;
         this.colonne = col;
+        this.simulation = s;
     }
 
     public boolean seDeplacer(int lig, int col) {

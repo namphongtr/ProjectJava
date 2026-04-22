@@ -1,4 +1,3 @@
-package Project.Agent;
 
 import java.util.ArrayList;
 
@@ -13,7 +12,22 @@ public class Simulation {
         this.nbEtapes = nbEtapes;
 
         initAgents(nbAgents);
-        initRessources();
+        //initRessources(); Pour ajouter les ressource
+    }
+
+    private void initAgents(int n) {
+        for (int i = 0; i < n; i++) {
+
+            int type = (int)(Math.random() * 3);
+
+            if (type == 0) {
+                agents.add(new Baleine(terrain, this));
+            } else if (type == 1) {
+                agents.add(new Dauphin(terrain, this));
+            } else {
+                agents.add(new Pieuvre(terrain, this));
+            }
+        }
     }
 
     public void addAgent(Agent a) {

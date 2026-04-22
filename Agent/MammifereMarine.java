@@ -1,14 +1,14 @@
-package Project.Agent;
+
 public abstract class MammifereMarine extends VieMarine{
     private int size;
 
-    public MammifereMarine(int size, Terrain t, int lig, int col) {
-        super(t, lig, col);
+    public MammifereMarine(int size, Terrain t, Simulation s, int lig, int col) {
+        super(t, s, lig, col);
         this.size = (int)(Math.random()*size + 1);
     }
 
-    public MammifereMarine(int size, Terrain t) {
-        super(t);
+    public MammifereMarine(int size, Terrain t, Simulation s) {
+        super(t, s);
         this.size = (int)(Math.random()*size + 1);
     }
 

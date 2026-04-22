@@ -1,4 +1,3 @@
-package Project.Agent;
 import java.util.ArrayList;
 
 public final class Terrain {
@@ -82,7 +81,7 @@ public final class Terrain {
         for(int var6 = 0; var6 < var5; ++var6) {
             var4 = var4 + "-";
         }
-       for(int var10 = 0; var10 < this.nbColonnes; ++var10) {
+        for(int var10 = 0; var10 < this.nbColonnes; ++var10) {
             var3 = var3 + var4 + ":";
         }
         var3 = var3 + "\n";
@@ -95,7 +94,7 @@ public final class Terrain {
                 var2 = var2 + "|" + premiersCar(this.terrain[var11][var7].type, var5);
                 }
             }
-          var2 = var2 + "|\n" + var3;
+            var2 = var2 + "|\n" + var3;
         }
         System.out.print(var2);
     }
@@ -145,3 +144,4 @@ public final class Terrain {
         }
         System.out.println("Les " + var1 + " ressources ont les bonnes coordonnées sur le terrain");
     }
+}
