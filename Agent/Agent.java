@@ -3,7 +3,8 @@ public abstract class Agent {
     protected int ligne;
     protected int colonne;
     protected Terrain terrain;
-    private Simulation simulation;
+    protected Simulation simulation;
+    
 
     public Agent(Terrain t, Simulation s, int lig, int col) {
         this.terrain = t;
@@ -26,6 +27,7 @@ public abstract class Agent {
         this.simulation = s;
     }
 
+    //Une cellue chaque fois
     public boolean seDeplacer(int lig, int col) {
         if (!terrain.sontValides(lig, col)) {
             return false;
@@ -38,5 +40,29 @@ public abstract class Agent {
         this.ligne = lig;
         this.colonne = col;
         return true;
+    }
+
+
+    public void deplacementAleatoire() {
+        int[][] directions = {{1,0}, {-1,0}, {0,1}, {0,-1}};
+
+        int i = (int)(Math.random() * 4);
+
+        int newLig = ligne + directions[i][0];
+        int newCol = colonne + directions[i][1];
+
+        seDeplacer(newLig, newCol);
+    }
+
+    protected void deplacementUnitaire() {
+        deplacementAleatoire(); // hoặc move 1 case hợp lệ
+    }
+
+    public int getLigne() {
+        return ligne;
+    }
+
+    public int getColonne() {
+        return colonne;
     }
 }

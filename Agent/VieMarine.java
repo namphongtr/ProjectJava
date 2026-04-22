@@ -22,7 +22,8 @@ public abstract class VieMarine extends Agent {
         return "Le " + this.id + " creature de la mer";
     }
 
-    public abstract void donnerNaissance(Terrain t, Simulation s);
+    public abstract void donnerNaissance();
+    public abstract void agir();
 
 
 }
