@@ -16,7 +16,7 @@ public class Simulation {
         this.couleurs = new Couleur();
 
         initAgents(nbAgents);
-        // initRessources(); Pour ajouter les ressource
+        initRessources(20); //Pour ajouter les ressource
     }
 
     private void initAgents(int n) {
@@ -30,6 +30,25 @@ public class Simulation {
                 agents.add(new Dauphin(terrain, this));
             } else {
                 agents.add(new Pieuvre(terrain, this));
+            }
+        }
+    }
+
+    private void initRessources(int nbRessources) {
+        int placees = 0;
+        while (placees < nbRessources) {
+            int lig = (int) (Math.random() * terrain.nbLignes) + 1;
+            int col = (int) (Math.random() * terrain.nbColonnes) + 1;
+
+            if (terrain.caseEstVide(lig, col)) {
+                Ressource r;
+                if (Math.random() < 0.5) {
+                    r = new Algue(10); 
+                } else {
+                    r = new Dechet(5);
+                }
+                terrain.setCase(lig, col, r);
+                placees++;
             }
         }
     }
