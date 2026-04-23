@@ -1,20 +1,27 @@
+
+/* Class Baleine extends MammifereMarine qui determiner combien de Baleine dans le Terrain */
 import java.util.ArrayList;
 
 public class Baleine extends MammifereMarine {
     private static int cptBal = 0;
     private int id;
 
+    /* Construction */
     public Baleine(int size, Terrain t, Simulation s, int lig, int col) {
         super(size, t, s, lig, col);
         this.id = ++cptBal;
     }
 
+    /*
+     * Construction de placer les Baleine en coordonner aleatoirement et de taille
+     * aleatoirement
+     */
     public Baleine(Terrain t, Simulation s) {
         super(20, t, s);
         this.id = ++cptBal;
     }
 
-    // Donner naissance dans la cellule proche de sa mere
+    /* Methode de donner naissance dans la cellule proche de sa mere */
     public void donnerNaissance() {
         int[][] directions = {
                 { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 }
@@ -35,15 +42,20 @@ public class Baleine extends MammifereMarine {
         }
     }
 
+    /* Methode de prend totale de Baleine dans le Terrain */
     public static int getTotalChaque() {
         return cptBal;
     }
 
+    /* Methode de l'affiche */
     public String toString() {
         return super.toString() + " et est le " + this.id + " Baleine";
     }
 
-    // Nager aleatoire, Manger ou donner naissance
+    /*
+     * Methode de determiner le Baleine de Nager aleatoire, Manger ou donner
+     * naissance
+     */
     public void agir() {
         for (int i = 0; i < 3; i++) {
             ArrayList<Agent> ici = simulation.getAgentsSameCell(ligne, colonne);

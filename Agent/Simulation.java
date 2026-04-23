@@ -6,21 +6,23 @@ public class Simulation {
     private ArrayList<Agent> agents;
     private int nbEtapes;
     private ArrayList<Agent> aSupprimer;
+    private Couleur couleurs;
 
     public Simulation(int nbAgents, int nbEtapes) {
         this.terrain = new Terrain(10, 10);
         this.agents = new ArrayList<>();
         this.nbEtapes = nbEtapes;
         this.aSupprimer = new ArrayList<>();
+        this.couleurs = new Couleur();
 
         initAgents(nbAgents);
-        //initRessources(); Pour ajouter les ressource
+        // initRessources(); Pour ajouter les ressource
     }
 
     private void initAgents(int n) {
         for (int i = 0; i < n; i++) {
 
-            int type = (int)(Math.random() * 3);
+            int type = (int) (Math.random() * 3);
 
             if (type == 0) {
                 agents.add(new Baleine(terrain, this));
@@ -33,14 +35,27 @@ public class Simulation {
     }
 
     public ArrayList<Agent> getAgentsAround(int lig, int col) {
+
         ArrayList<Agent> voisins = new ArrayList<>();
 
-        for (Agent a : agents) {
-            int dLig = Math.abs(a.getLigne() - lig);
-            int dCol = Math.abs(a.getColonne() - col);
+        int[][] directions = {
+                { -1, -1 }, { -1, 0 }, { -1, 1 },
+                { 0, -1 }, { 0, 1 },
+                { 1, -1 }, { 1, 0 }, { 1, 1 }
+        };
 
-            if (dLig + dCol == 1) {
-                voisins.add(a);
+        for (int[] d : directions) {
+
+            int newLig = lig + d[0];
+            int newCol = col + d[1];
+
+            if (terrain.sontValides(newLig, newCol)) {
+
+                for (Agent a : agents) {
+                    if (a.getLigne() == newLig && a.getColonne() == newCol) {
+                        voisins.add(a);
+                    }
+                }
             }
         }
 
@@ -65,6 +80,13 @@ public class Simulation {
     }
 
     public void removeAgent(Agent a) {
+        if (a instanceof Pieuvre) {
+            if (Math.random() < 0.35) {
+                System.out.println(a + "a change couleur et a echaper");
+                ((Pieuvre) a).changerCouleur(couleurs);
+                return;
+            }
+        }
         if (!aSupprimer.contains(a)) {
             aSupprimer.add(a);
         }

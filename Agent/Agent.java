@@ -1,11 +1,11 @@
-
+/* La class Agent pour determiner les coordonner des Agents dans le Terrain */
 public abstract class Agent {
     protected int ligne;
     protected int colonne;
     protected Terrain terrain;
     protected Simulation simulation;
-    
 
+    /* Construction */
     public Agent(Terrain t, Simulation s, int lig, int col) {
         this.terrain = t;
         this.ligne = lig;
@@ -13,12 +13,13 @@ public abstract class Agent {
         this.simulation = s;
     }
 
+    /* Construction de placer les Agent en coordonner aleatoirement */
     public Agent(Terrain t, Simulation s) {
         int lig, col;
 
         do {
-            lig = (int)(Math.random() * t.nbLignes) + 1;
-            col = (int)(Math.random() * t.nbColonnes) + 1;
+            lig = (int) (Math.random() * t.nbLignes) + 1;
+            col = (int) (Math.random() * t.nbColonnes) + 1;
         } while (!t.caseEstVide(lig, col));
 
         this.terrain = t;
@@ -27,7 +28,7 @@ public abstract class Agent {
         this.simulation = s;
     }
 
-    //Une cellue chaque fois
+    /* Methode de deplacement une cellule */
     public boolean seDeplacer(int lig, int col) {
         if (!terrain.sontValides(lig, col)) {
             return false;
@@ -42,11 +43,11 @@ public abstract class Agent {
         return true;
     }
 
-
+    /* Methode de deplacement aleatoirement */
     public void deplacementAleatoire() {
-        int[][] directions = {{1,0}, {-1,0}, {0,1}, {0,-1}};
+        int[][] directions = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
 
-        int i = (int)(Math.random() * 4);
+        int i = (int) (Math.random() * 4);
 
         int newLig = ligne + directions[i][0];
         int newCol = colonne + directions[i][1];
@@ -54,14 +55,17 @@ public abstract class Agent {
         seDeplacer(newLig, newCol);
     }
 
+    /* Methode de deplacement aleatoirement une cellule chaque fois */
     protected void deplacementUnitaire() {
-        deplacementAleatoire(); // hoặc move 1 case hợp lệ
+        deplacementAleatoire();
     }
 
+    /* Prend le coordonner y */
     public int getLigne() {
         return ligne;
     }
 
+    /* Prend le coordonner x */
     public int getColonne() {
         return colonne;
     }
