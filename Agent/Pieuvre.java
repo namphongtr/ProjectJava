@@ -1,4 +1,4 @@
-
+//TRAN ET LE
 /* Class Pieuvre extends la class Calmar qui determiner le couleur, le total de Pieuvre dans le Terrain et s'il peut courir */
 import java.util.ArrayList;
 

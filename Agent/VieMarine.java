@@ -1,3 +1,4 @@
+//TRAN ET LE
 /*Class des VieMarine extends de la classe Agent qui determiner total de creature dans la mer */
 public abstract class VieMarine extends Agent {
     private static int cpt = 0;

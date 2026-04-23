@@ -1,3 +1,4 @@
+//TRAN ET LE
 /* La class Agent pour determiner les coordonner des Agents dans le Terrain */
 public abstract class Agent {
     protected int ligne;

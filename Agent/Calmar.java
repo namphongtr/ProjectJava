@@ -1,3 +1,4 @@
+//TRAN ET LE
 /* Class Calmar extends de la class VieMarine pour determiner une Calmar a combien de Tentacules*/
 public abstract class Calmar extends VieMarine {
     private int nbTentacules;
