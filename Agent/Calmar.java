@@ -19,8 +19,7 @@ public abstract class Calmar extends VieMarine {
      * nombre de Tentacules aleatoirement
      */
     public Calmar(Terrain t, Simulation s) {
-        int nb = (int) (Math.random() * 3 + 8);
-        this(nb, t, s);
+        this((int) (Math.random() * 3 + 8), t, s);
     }
 
     /* Methode de l'affiche */

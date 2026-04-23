@@ -37,7 +37,7 @@ public class Dauphin extends MammifereMarine {
                 Dauphin bebe = new Dauphin(size, terrain, simulation, newL, newC);
                 simulation.addAgent(bebe);
 
-                System.out.println("Naissance près de la mère !");
+                System.out.println("Un Dauphin a naissance près de la mère en (" + newL + ", " + newC + ")");
                 return;
             }
         }
@@ -72,7 +72,7 @@ public class Dauphin extends MammifereMarine {
                     return;
                 }
 
-                if (a instanceof Dauphin && Math.random() < 0.6) {
+                if (a instanceof Dauphin && Math.random() < 0.4) {
                     donnerNaissance();
                     return;
                 }

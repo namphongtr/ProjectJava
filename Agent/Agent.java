@@ -69,4 +69,6 @@ public abstract class Agent {
     public int getColonne() {
         return colonne;
     }
+
+    public abstract void agir();
 }

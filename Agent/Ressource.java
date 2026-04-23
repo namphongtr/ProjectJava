@@ -1,4 +1,3 @@
-package Project.Agent;
 // Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
 public class Ressource {
     private static int nbRessources = 0;

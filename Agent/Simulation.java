@@ -9,7 +9,7 @@ public class Simulation {
     private Couleur couleurs;
 
     public Simulation(int nbAgents, int nbEtapes) {
-        this.terrain = new Terrain(10, 10);
+        this.terrain = new Terrain(4, 4);
         this.agents = new ArrayList<>();
         this.nbEtapes = nbEtapes;
         this.aSupprimer = new ArrayList<>();
@@ -21,9 +21,7 @@ public class Simulation {
 
     private void initAgents(int n) {
         for (int i = 0; i < n; i++) {
-
             int type = (int) (Math.random() * 3);
-
             if (type == 0) {
                 agents.add(new Baleine(terrain, this));
             } else if (type == 1) {
@@ -33,6 +31,7 @@ public class Simulation {
             }
         }
     }
+
 
     public ArrayList<Agent> getAgentsAround(int lig, int col) {
 
@@ -89,6 +88,35 @@ public class Simulation {
         }
         if (!aSupprimer.contains(a)) {
             aSupprimer.add(a);
+        }
+    }
+
+    public void step() {
+        ArrayList<Agent> copie = new ArrayList<>(agents);
+        for (Agent a : copie) {
+            a.agir();
+            if (a instanceof Pieuvre && Math.random() < 0.7) {
+                ((Pieuvre) a).changerCouleur(couleurs);
+            }
+        }
+        updateFinEtape();
+    }
+
+    public void run() {
+        for (int i = 1; i <= nbEtapes; i++) {
+            System.out.println("----- Étape " + i + " -----");
+            terrain.afficher(5);
+            step();
+            afficherEtat();
+        }
+    }
+
+    public void afficherEtat() {
+
+        System.out.println("Nombre d'agents: " + agents.size());
+
+        for (Agent a : agents) {
+            System.out.println(a + " (" + a.getLigne() + "," + a.getColonne() + ")");
         }
     }
 

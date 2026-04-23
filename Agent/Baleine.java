@@ -36,7 +36,7 @@ public class Baleine extends MammifereMarine {
                 Baleine bebe = new Baleine(size, terrain, simulation, newL, newC);
                 simulation.addAgent(bebe);
 
-                System.out.println("Naissance près de la mère !");
+                System.out.println("Un Baleine a naissance près de la mère en (" + newL + ", " + newC + ")");
                 return;
             }
         }
@@ -83,7 +83,7 @@ public class Baleine extends MammifereMarine {
                 for (Agent a : ici) {
                     if (a instanceof Pieuvre && a != this) {
 
-                        if (Math.random() < 0.6) {
+                        if (Math.random() < 0.4) {
                             donnerNaissance();
                             System.out.println("Naissance de Pieuvre !");
                         }

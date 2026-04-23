@@ -44,7 +44,9 @@ public class Pieuvre extends Calmar implements CouleurChangeable {
         return couleurs.getCoul(randNum);
     }
 
-    /* Methode de changer couleur aleatoirement dans l'ArrayList dans class Couleur */
+    /*
+     * Methode de changer couleur aleatoirement dans l'ArrayList dans class Couleur
+     */
     public void changerCouleur(Couleur couleurs) {
         int size = couleurs.getSize();
         int randNum = (int) (Math.random() * size);
@@ -63,7 +65,6 @@ public class Pieuvre extends Calmar implements CouleurChangeable {
         return super.toString() + " couleur : " + this.couleur + " et est le " + this.id + " Pieuvre";
     }
 
-    
     /* Methode de donner naissance dans la cellule proche de sa mere */
     public void donnerNaissance() {
 
@@ -80,7 +81,7 @@ public class Pieuvre extends Calmar implements CouleurChangeable {
                 Pieuvre bebe = new Pieuvre(terrain, simulation);
                 simulation.addAgent(bebe);
 
-                System.out.println("Naissance près de la mère !");
+                System.out.println("Un Pieuvre a naissance près de la mère en (" + newL + ", " + newC + ")");
                 return;
             }
         }
