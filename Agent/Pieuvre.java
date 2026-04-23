@@ -35,6 +35,13 @@ public class Pieuvre extends Calmar implements CouleurChangeable {
         this("grey", t, s);
     }
 
+    //Constructeur de copie
+    public Pieuvre(Pieuvre p) {
+        super(p);
+        this.couleur = p.couleur;
+        this.id = ++cptPieu;
+    }
+
     /*
      * Methode de choisir couleur aleatoirement dans l'ArrayList dans class Couleur
      */

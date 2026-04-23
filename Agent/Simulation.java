@@ -111,6 +111,39 @@ public class Simulation {
         }
     }
 
+    /**
+ * Realiser une étape de la simulation: chaque agent agit, les ressources se mettent à jour, et les agents morts sont retirés.
+ * Affiche les statistiques après chaque étape.
+ */
+public void uneEtape() {
+    System.out.println("\n=== Bước mô phỏng mới ===");
+
+    // Chaque Agent agir
+    // Utiliser le copie de la liste pour éviter les problèmes de modification pendant l'itération
+    ArrayList<Agent> copyAgents = new ArrayList<>(this.agents);
+    for (Agent a : copyAgents) {
+        if (a instanceof VieMarine) {
+            ((VieMarine) a).agir();
+        }
+    }
+
+    // Mise à jour des ressources (ex: les algues se développent)
+    for (Ressource r : terrain.lesRessources()) {
+        if (r instanceof Algue) {
+            ((Algue) r).seDevelopper(); 
+        }
+    }
+
+    // Mise à jour apres chaque étape
+    updateFinEtape();
+
+    // Affichage des statistiques après chaque étape
+    System.out.println("Final:");
+    System.out.println("- Agents restants: " + agents.size());
+    System.out.println("- Ressources restantes: " + terrain.compterRessources());
+    
+}
+
     public void updateFinEtape() {
         for (Agent a : aSupprimer) {
             if (agents.contains(a)) {
