@@ -1,7 +1,8 @@
+//TRAN ET LE
 public class TestSimulation {
     public static void main(String[] args) {
         Terrain t = new Terrain(5, 5);
-        Simulation s = new Simulation(t10);
+        Simulation s = new Simulation(t,10);
 
         System.out.println("Agents initialement :");
         for (Agent a : s.getAgents()) {
