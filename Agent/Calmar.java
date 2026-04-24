@@ -15,6 +15,12 @@ public abstract class Calmar extends VieMarine {
         this.nbTentacules = nbTentacules;
     }
 
+    /* Construction de copy */
+    public Calmar(Calmar c) {
+        super(c);
+        this.nbTentacules = c.nbTentacules;
+    }
+
     /*
      * Construction de placer les Calmar en coordonner aleatoirement et avec le
      * nombre de Tentacules aleatoirement

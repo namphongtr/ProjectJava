@@ -1,3 +1,4 @@
+
 //TRAN ET LE
 import java.util.ArrayList;
 
@@ -8,15 +9,15 @@ public class Simulation {
     private ArrayList<Agent> aSupprimer;
     private Couleur couleurs;
 
-    public Simulation(int nbAgents, int nbEtapes) {
-        this.terrain = new Terrain(4, 4);
+    public Simulation(int nbAgents, int nbRessources, int nbEtapes) {
+        this.terrain = new Terrain(8, 8);
         this.agents = new ArrayList<>();
         this.nbEtapes = nbEtapes;
         this.aSupprimer = new ArrayList<>();
         this.couleurs = new Couleur();
 
         initAgents(nbAgents);
-        initRessources(20); //Pour ajouter les ressource
+        initRessources(nbRessources); // Pour ajouter les ressource
     }
 
     private void initAgents(int n) {
@@ -32,25 +33,41 @@ public class Simulation {
         }
     }
 
+    /*
+     * private void initRessources(int nbRessources) {
+     * int placees = 0;
+     * while (placees < nbRessources) {
+     * int lig = (int) (Math.random() * terrain.nbLignes) + 1;
+     * int col = (int) (Math.random() * terrain.nbColonnes) + 1;
+     * 
+     * if (terrain.caseEstVide(lig, col)) {
+     * Ressource r;
+     * if (Math.random() < 0.5) {
+     * r = new Algue(10);
+     * } else {
+     * r = new Dechet(5);
+     * }
+     * terrain.setCase(lig, col, r);
+     * placees++;
+     * }
+     * }
+     * }
+     */
+
     private void initRessources(int nbRessources) {
-        int placees = 0;
-        while (placees < nbRessources) {
+        for (int i = 0; i < nbRessources; i++) {
             int lig = (int) (Math.random() * terrain.nbLignes) + 1;
             int col = (int) (Math.random() * terrain.nbColonnes) + 1;
-
-            if (terrain.caseEstVide(lig, col)) {
-                Ressource r;
-                if (Math.random() < 0.5) {
-                    r = new Algue(10); 
-                } else {
-                    r = new Dechet(5);
-                }
-                terrain.setCase(lig, col, r);
-                placees++;
+            int type = (int) (Math.random() * 2);
+            if (type == 0) {
+                terrain.setCase(lig, col, new Algue());
+                System.out.println("Le ressource Algue est dans (" + lig + ", " + col + ")");
+            } else if (type == 1) {
+                terrain.setCase(lig, col, new Dechet());
+                System.out.println("Le ressource Dechet est dans (" + lig + ", " + col + ")");
             }
         }
     }
-
 
     public ArrayList<Agent> getAgentsAround(int lig, int col) {
 
@@ -109,11 +126,12 @@ public class Simulation {
             aSupprimer.add(a);
         }
     }
+
     public void step() {
         ArrayList<Agent> copie = new ArrayList<>(agents);
         for (Agent a : copie) {
             a.agir();
-            if (a instanceof Pieuvre && Math.random() < 0.7) {
+            if (a instanceof Pieuvre && Math.random() < 0.5) {
                 ((Pieuvre) a).changerCouleur(couleurs);
             }
         }
@@ -130,9 +148,7 @@ public class Simulation {
     }
 
     public void afficherEtat() {
-
         System.out.println("Nombre d'agents: " + agents.size());
-
         for (Agent a : agents) {
             System.out.println(a + " (" + a.getLigne() + "," + a.getColonne() + ")");
         }

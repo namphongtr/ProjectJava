@@ -1,3 +1,4 @@
+
 //TRAN ET LE
 /* Class Dauphin extends MammifereMarine qui determiner combien de Dauphin dans le Terrain */
 import java.util.ArrayList;
@@ -19,6 +20,10 @@ public class Dauphin extends MammifereMarine {
     public Dauphin(Terrain t, Simulation s) {
         super(5, t, s);
         this.id = ++cptDau;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     /* Methode de donner naissance dans la cellule proche de sa mere */
@@ -69,10 +74,11 @@ public class Dauphin extends MammifereMarine {
 
                 if (a != this && a instanceof Pieuvre) {
                     simulation.removeAgent(a);
+                    System.out.println("Le Dauphin " + this.id + " a manger le " + ((Pieuvre)a).getId() +  " Pieuvre");
                     return;
                 }
 
-                if (a instanceof Dauphin && Math.random() < 0.4) {
+                if (a != this && a instanceof Dauphin && Math.random() < 0.4) {
                     donnerNaissance();
                     return;
                 }

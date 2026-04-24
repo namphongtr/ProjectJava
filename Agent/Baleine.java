@@ -1,3 +1,4 @@
+
 //TRAN ET LE
 /* Class Baleine extends MammifereMarine qui determiner combien de Baleine dans le Terrain */
 import java.util.ArrayList;
@@ -19,6 +20,10 @@ public class Baleine extends MammifereMarine {
     public Baleine(Terrain t, Simulation s) {
         super(20, t, s);
         this.id = ++cptBal;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     /* Methode de donner naissance dans la cellule proche de sa mere */
@@ -58,40 +63,31 @@ public class Baleine extends MammifereMarine {
      */
     public void agir() {
         for (int i = 0; i < 3; i++) {
+
+            deplacementUnitaire();
+
             ArrayList<Agent> ici = simulation.getAgentsSameCell(ligne, colonne);
 
-            int nbPieuvre = 0;
-
             for (Agent a : ici) {
-                if (a instanceof Pieuvre) {
-                    nbPieuvre++;
+
+                if (a != this && (a instanceof Pieuvre || a instanceof Dauphin)) {
+                    simulation.removeAgent(a);
+                    if (a instanceof Dauphin) {
+                        System.out
+                                .println("Le Baleine " + this.id + " a manger le " + ((Dauphin) a).getId() + " Dauphin");
+                    } else {
+                        System.out
+                                .println("Le Baleine " + this.id + " a manger le " + ((Pieuvre) a).getId() + " Pieuvre");
+                    }
+                    return;
+                }
+
+                if (a != this && a instanceof Baleine && Math.random() < 0.4) {
+                    donnerNaissance();
+                    return;
                 }
             }
 
-            if (nbPieuvre > 1) {
-
-                for (Agent a : ici) {
-
-                    if (a != this && (a instanceof Dauphin || a instanceof Pieuvre)) {
-
-                        simulation.removeAgent(a);
-                        System.out.println(this + " attaque " + a);
-                        return;
-                    }
-                }
-
-                for (Agent a : ici) {
-                    if (a instanceof Pieuvre && a != this) {
-
-                        if (Math.random() < 0.4) {
-                            donnerNaissance();
-                            System.out.println("Naissance de Pieuvre !");
-                        }
-                        return;
-                    }
-                }
-            }
-            deplacementUnitaire();
         }
     }
 }

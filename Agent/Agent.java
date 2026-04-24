@@ -29,6 +29,14 @@ public abstract class Agent {
         this.simulation = s;
     }
 
+    /* Construction de copie */
+    public Agent(Agent a) {
+        this.terrain = a.terrain;
+        this.ligne = a.ligne;
+        this.colonne = a.colonne;
+        this.simulation = a.simulation;
+    }
+
     /* Methode de deplacement une cellule */
     public boolean seDeplacer(int lig, int col) {
         if (!terrain.sontValides(lig, col)) {

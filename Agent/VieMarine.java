@@ -16,6 +16,12 @@ public abstract class VieMarine extends Agent {
         this.id = ++cpt;
     }
 
+    /* Construction de copie */
+    public VieMarine(VieMarine v) {
+        super(v);
+        this.id = v.id;
+    }
+
     /* Methode pour prend total creature dans la mer */
     public static int getTotalCreature() {
         return cpt;
