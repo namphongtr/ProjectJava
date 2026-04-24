@@ -8,6 +8,7 @@ public class Pieuvre extends Calmar implements CouleurChangeable {
     private static int cptPieu = 0;
     private int id;
     private boolean camoufle = false;
+    private boolean avaitNaissance = false;
 
     /* Construction */
     public Pieuvre(int nbTentacules, String couleur, Terrain t, Simulation s, int lig, int col) {
@@ -79,22 +80,24 @@ public class Pieuvre extends Calmar implements CouleurChangeable {
 
     /* Methode de donner naissance dans la cellule proche de sa mere */
     public void donnerNaissance() {
+        if (!avaitNaissance) {
+            int[][] directions = {
+                    { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 }
+            };
 
-        int[][] directions = {
-                { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 }
-        };
+            for (int[] d : directions) {
+                int newL = ligne + d[0];
+                int newC = colonne + d[1];
 
-        for (int[] d : directions) {
-            int newL = ligne + d[0];
-            int newC = colonne + d[1];
+                if (terrain.sontValides(newL, newC)) {
+                    int size = (int) (Math.random() * 3 + 1);
+                    Pieuvre bebe = new Pieuvre(terrain, simulation);
+                    simulation.addAgent(bebe);
 
-            if (terrain.sontValides(newL, newC)) {
-                int size = (int) (Math.random() * 3 + 1);
-                Pieuvre bebe = new Pieuvre(terrain, simulation);
-                simulation.addAgent(bebe);
-
-                System.out.println("Un Pieuvre a naissance près de la mère en (" + newL + ", " + newC + ")");
-                return;
+                    System.out.println("Un Pieuvre a naissance près de la mère en (" + newL + ", " + newC + ")");
+                    this.avaitNaissance = true;
+                    return;
+                }
             }
         }
     }
@@ -121,9 +124,15 @@ public class Pieuvre extends Calmar implements CouleurChangeable {
             }
             if (nbPieuvre > 1) {
                 for (Agent a : ici) {
-                    if (a != this && (a instanceof Dauphin || a instanceof Pieuvre)) {
+                    if (a != this && (a instanceof Dauphin || a instanceof Baleine)) {
                         simulation.removeAgent(a);
-                        System.out.println(this + " attaque " + a);
+                        if (a instanceof Dauphin) {
+                            System.out
+                                    .println("Le Pieuvre " + this.id + " attaque le Dauphin " + ((Dauphin) a).getId());
+                        } else if (a instanceof Baleine) {
+                            System.out
+                                    .println("Le Pieuvre " + this.id + " attaque le Baleine " + ((Baleine) a).getId());
+                        }
                         return;
                     }
                 }

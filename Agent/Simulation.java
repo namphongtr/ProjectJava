@@ -3,14 +3,15 @@
 import java.util.ArrayList;
 
 public class Simulation {
+    private static Simulation instance;
     private Terrain terrain;
     private ArrayList<Agent> agents;
     private int nbEtapes;
     private ArrayList<Agent> aSupprimer;
     private Couleur couleurs;
 
-    public Simulation(int nbAgents, int nbRessources, int nbEtapes) {
-        this.terrain = new Terrain(8, 8);
+    private Simulation(int nbLig, int nbCol, int nbAgents, int nbRessources, int nbEtapes) {
+        this.terrain = new Terrain(nbLig, nbCol);
         this.agents = new ArrayList<>();
         this.nbEtapes = nbEtapes;
         this.aSupprimer = new ArrayList<>();
@@ -18,6 +19,13 @@ public class Simulation {
 
         initAgents(nbAgents);
         initRessources(nbRessources); // Pour ajouter les ressource
+    }
+
+    public static Simulation getInstance(int nbLig, int nbCol, int nbAgents, int nbRessources, int nbEtapes) {
+        if (instance == null) {
+            instance = new Simulation(nbLig, nbCol, nbAgents, nbRessources, nbEtapes);
+        }
+        return instance;
     }
 
     private void initAgents(int n) {
@@ -117,7 +125,7 @@ public class Simulation {
     public void removeAgent(Agent a) {
         if (a instanceof Pieuvre) {
             if (Math.random() < 0.35) {
-                System.out.println(a + "a change couleur et a echaper");
+                System.out.println("Le Pieuvre " + ((Pieuvre)a).getId() + " a change couleur et a echaper");
                 ((Pieuvre) a).changerCouleur(couleurs);
                 return;
             }
@@ -131,7 +139,7 @@ public class Simulation {
         ArrayList<Agent> copie = new ArrayList<>(agents);
         for (Agent a : copie) {
             a.agir();
-            if (a instanceof Pieuvre && Math.random() < 0.5) {
+            if (a instanceof Pieuvre && Math.random() < 0.1) {
                 ((Pieuvre) a).changerCouleur(couleurs);
             }
         }
@@ -142,6 +150,7 @@ public class Simulation {
         for (int i = 1; i <= nbEtapes; i++) {
             System.out.println("----- Étape " + i + " -----");
             terrain.afficher(5);
+            System.out.println("Les actions des Agents :");
             step();
             afficherEtat();
         }
