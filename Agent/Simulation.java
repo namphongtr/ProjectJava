@@ -41,32 +41,11 @@ public class Simulation {
         }
     }
 
-    /*
-     * private void initRessources(int nbRessources) {
-     * int placees = 0;
-     * while (placees < nbRessources) {
-     * int lig = (int) (Math.random() * terrain.nbLignes) + 1;
-     * int col = (int) (Math.random() * terrain.nbColonnes) + 1;
-     * 
-     * if (terrain.caseEstVide(lig, col)) {
-     * Ressource r;
-     * if (Math.random() < 0.5) {
-     * r = new Algue(10);
-     * } else {
-     * r = new Dechet(5);
-     * }
-     * terrain.setCase(lig, col, r);
-     * placees++;
-     * }
-     * }
-     * }
-     */
-
     private void initRessources(int nbRessources) {
         for (int i = 0; i < nbRessources; i++) {
-            int lig = (int) (Math.random() * terrain.nbLignes) + 1;
-            int col = (int) (Math.random() * terrain.nbColonnes) + 1;
-            int type = (int) (Math.random() * 2);
+            int lig = SimulationOutils.randomInt(terrain.nbLignes);
+            int col = SimulationOutils.randomInt(terrain.nbColonnes);
+            int type = SimulationOutils.randomInt(1);
             if (type == 0) {
                 terrain.setCase(lig, col, new Algue());
                 System.out.println("Le ressource Algue est dans (" + lig + ", " + col + ")");
@@ -125,7 +104,7 @@ public class Simulation {
     public void removeAgent(Agent a) {
         if (a instanceof Pieuvre) {
             if (Math.random() < 0.35) {
-                System.out.println("Le Pieuvre " + ((Pieuvre)a).getId() + " a change couleur et a echaper");
+                System.out.println("Le Pieuvre " + ((Pieuvre) a).getId() + " a change couleur et a echaper");
                 ((Pieuvre) a).changerCouleur(couleurs);
                 return;
             }
@@ -138,7 +117,12 @@ public class Simulation {
     public void step() {
         ArrayList<Agent> copie = new ArrayList<>(agents);
         for (Agent a : copie) {
+            // try {
             a.agir();
+            // }
+            // catch (Exception e) {
+            // System.out.println("Erreur durant agir : " + e.getMessage());
+            // }
             if (a instanceof Pieuvre && Math.random() < 0.1) {
                 ((Pieuvre) a).changerCouleur(couleurs);
             }

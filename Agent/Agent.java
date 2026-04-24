@@ -38,8 +38,9 @@ public abstract class Agent {
     }
 
     /* Methode de deplacement une cellule */
-    public boolean seDeplacer(int lig, int col) {
+    public boolean seDeplacer(int lig, int col) /* throws HorsTerrainException */ {
         if (!terrain.sontValides(lig, col)) {
+            // throw new HorsTerrainException("Deplacer hors Terrain !");
             return false;
         }
         int dLig = Math.abs(lig - this.ligne);
@@ -61,7 +62,11 @@ public abstract class Agent {
         int newLig = ligne + directions[i][0];
         int newCol = colonne + directions[i][1];
 
+        // try {
         seDeplacer(newLig, newCol);
+        // } catch (HorsTerrainException e) {
+        // System.out.println("Déplacement impossible: " + e.getMessage());
+        // }
     }
 
     /* Methode pour calculer la distance entre l'agent et une case */
