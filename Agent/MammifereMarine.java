@@ -1,3 +1,4 @@
+//TRAN ET LE
 /* Class MammifereMarine extend de la class VieMarine determiner la taille des MammifereMarine */
 public abstract class MammifereMarine extends VieMarine {
     private int size;

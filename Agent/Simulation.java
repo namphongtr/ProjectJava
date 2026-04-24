@@ -1,4 +1,4 @@
-
+//TRAN ET LE
 import java.util.ArrayList;
 
 public class Simulation {
@@ -16,7 +16,7 @@ public class Simulation {
         this.couleurs = new Couleur();
 
         initAgents(nbAgents);
-        // initRessources(); Pour ajouter les ressource
+        initRessources(20); //Pour ajouter les ressource
     }
 
     private void initAgents(int n) {
@@ -28,6 +28,25 @@ public class Simulation {
                 agents.add(new Dauphin(terrain, this));
             } else {
                 agents.add(new Pieuvre(terrain, this));
+            }
+        }
+    }
+
+    private void initRessources(int nbRessources) {
+        int placees = 0;
+        while (placees < nbRessources) {
+            int lig = (int) (Math.random() * terrain.nbLignes) + 1;
+            int col = (int) (Math.random() * terrain.nbColonnes) + 1;
+
+            if (terrain.caseEstVide(lig, col)) {
+                Ressource r;
+                if (Math.random() < 0.5) {
+                    r = new Algue(10); 
+                } else {
+                    r = new Dechet(5);
+                }
+                terrain.setCase(lig, col, r);
+                placees++;
             }
         }
     }
@@ -88,35 +107,6 @@ public class Simulation {
         }
         if (!aSupprimer.contains(a)) {
             aSupprimer.add(a);
-        }
-    }
-
-    public void step() {
-        ArrayList<Agent> copie = new ArrayList<>(agents);
-        for (Agent a : copie) {
-            a.agir();
-            if (a instanceof Pieuvre && Math.random() < 0.7) {
-                ((Pieuvre) a).changerCouleur(couleurs);
-            }
-        }
-        updateFinEtape();
-    }
-
-    public void run() {
-        for (int i = 1; i <= nbEtapes; i++) {
-            System.out.println("----- Étape " + i + " -----");
-            terrain.afficher(5);
-            step();
-            afficherEtat();
-        }
-    }
-
-    public void afficherEtat() {
-
-        System.out.println("Nombre d'agents: " + agents.size());
-
-        for (Agent a : agents) {
-            System.out.println(a + " (" + a.getLigne() + "," + a.getColonne() + ")");
         }
     }
 

@@ -1,4 +1,4 @@
-
+//TRAN ET LE
 /* Class Pieuvre extends la class Calmar qui determiner le couleur, le total de Pieuvre dans le Terrain et s'il peut courir */
 import java.util.ArrayList;
 
@@ -33,6 +33,13 @@ public class Pieuvre extends Calmar implements CouleurChangeable {
      */
     public Pieuvre(Terrain t, Simulation s) {
         this("grey", t, s);
+    }
+
+    //Constructeur de copie
+    public Pieuvre(Pieuvre p) {
+        super(p);
+        this.couleur = p.couleur;
+        this.id = ++cptPieu;
     }
 
     /*

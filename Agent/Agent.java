@@ -1,3 +1,4 @@
+//TRAN ET LE
 /* La class Agent pour determiner les coordonner des Agents dans le Terrain */
 public abstract class Agent {
     protected int ligne;
@@ -53,6 +54,13 @@ public abstract class Agent {
         int newCol = colonne + directions[i][1];
 
         seDeplacer(newLig, newCol);
+    }
+
+    /* Methode pour calculer la distance entre l'agent et une case */
+    public double distance(int lig, int col) {
+        double dLig = this.ligne - lig;
+        double dCol = this.colonne - col;
+        return Math.sqrt((dLig * dLig) + (dCol * dCol));
     }
 
     /* Methode de deplacement aleatoirement une cellule chaque fois */
