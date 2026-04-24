@@ -109,6 +109,34 @@ public class Simulation {
             aSupprimer.add(a);
         }
     }
+    public void step() {
+        ArrayList<Agent> copie = new ArrayList<>(agents);
+        for (Agent a : copie) {
+            a.agir();
+            if (a instanceof Pieuvre && Math.random() < 0.7) {
+                ((Pieuvre) a).changerCouleur(couleurs);
+            }
+        }
+        updateFinEtape();
+    }
+
+    public void run() {
+        for (int i = 1; i <= nbEtapes; i++) {
+            System.out.println("----- Étape " + i + " -----");
+            terrain.afficher(5);
+            step();
+            afficherEtat();
+        }
+    }
+
+    public void afficherEtat() {
+
+        System.out.println("Nombre d'agents: " + agents.size());
+
+        for (Agent a : agents) {
+            System.out.println(a + " (" + a.getLigne() + "," + a.getColonne() + ")");
+        }
+    }
 
     public void updateFinEtape() {
         for (Agent a : aSupprimer) {
