@@ -136,8 +136,6 @@ public class Pieuvre extends Calmar implements CouleurChangeable {
                         return;
                     }
                 }
-            }
-            if (nbPieuvre > 1) {
                 for (Agent a : ici) {
                     if (a instanceof Pieuvre && a != this) {
 

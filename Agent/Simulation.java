@@ -126,12 +126,7 @@ public class Simulation {
     public void step() {
         ArrayList<Agent> copie = new ArrayList<>(agents);
         for (Agent a : copie) {
-            // try {
             a.agir();
-            // }
-            // catch (Exception e) {
-            // System.out.println("Erreur durant agir : " + e.getMessage());
-            // }
             if (a instanceof Pieuvre && Math.random() < 0.1) {
                 ((Pieuvre) a).changerCouleur(couleurs);
             }
