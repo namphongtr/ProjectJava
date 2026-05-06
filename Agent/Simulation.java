@@ -9,6 +9,8 @@ public class Simulation {
     private int nbEtapes;
     private ArrayList<Agent> aSupprimer;
     private Couleur couleurs;
+    private ArrayList<Ressource> ressources;
+
 
     private Simulation(int nbLig, int nbCol, int nbAgents, int nbRessources, int nbEtapes) {
         this.terrain = new Terrain(nbLig, nbCol);
@@ -16,6 +18,7 @@ public class Simulation {
         this.nbEtapes = nbEtapes;
         this.aSupprimer = new ArrayList<>();
         this.couleurs = new Couleur();
+        this.ressources = new ArrayList<>();
 
         initAgents(nbAgents);
         initRessources(nbRessources); // Pour ajouter les ressource
@@ -47,10 +50,16 @@ public class Simulation {
             int col = SimulationOutils.randomInt(terrain.nbColonnes);
             int type = SimulationOutils.randomInt(1);
             if (type == 0) {
-                terrain.setCase(lig, col, new Algue());
+                Algue algue = new Algue();
+                algue.setPosition(lig, col); // Mettre à jour les coordonnées de l'algue
+                terrain.setCase(lig, col, algue);
+                ressources.add(algue); // Ajouter l'algue à la liste des ressources
                 System.out.println("Le ressource Algue est dans (" + lig + ", " + col + ")");
             } else if (type == 1) {
-                terrain.setCase(lig, col, new Dechet());
+                Dechet dechet = new Dechet();
+                dechet.setPosition(lig, col); // Mettre à jour les coordonnées du déchet
+                terrain.setCase(lig, col, dechet);
+                ressources.add(dechet); // Ajouter le déchet à la liste des ressources
                 System.out.println("Le ressource Dechet est dans (" + lig + ", " + col + ")");
             }
         }
@@ -125,6 +134,11 @@ public class Simulation {
             // }
             if (a instanceof Pieuvre && Math.random() < 0.1) {
                 ((Pieuvre) a).changerCouleur(couleurs);
+            }
+        }
+        for (Ressource r : ressources) {
+            if (r instanceof Algue) {
+                ((Algue) r).seDevelopper(); 
             }
         }
         updateFinEtape();
