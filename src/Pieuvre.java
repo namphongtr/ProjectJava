@@ -78,9 +78,7 @@ public class Pieuvre extends Calmar implements CouleurChangeable {
      * @param couleurs liste des couleurs
      */
     public void changerCouleur(Couleur couleurs) {
-        int size = couleurs.getSize();
-        int randNum = (int) (Math.random() * size);
-        this.couleur = couleurs.getCoul(randNum);
+        this.couleur = choisirCouleur(couleurs);
         System.out.println("Le pieuvre " + this.id + " a change leur couleur a " + this.couleur);
         this.camoufle = true;
     }
