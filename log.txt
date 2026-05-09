@@ -1,0 +1,263 @@
+TEST 1
+Le ressource Dechet est dans (5, 5)
+Le ressource Dechet est dans (4, 1)
+----- Étape 1 -----
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|Deche|     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |Deche|
+:-----:-----:-----:-----:-----:
+Les actions des Agents :
+Un Baleine a naissance près de la mère en (2, 2)
+Un Baleine a naissance près de la mère en (3, 2)
+Le Baleine 4 a manger le 1 Dauphin
+Nombre d'agents: 7
+Le 1 creature de la mer est 8m et est le 1 Baleine (1,2)
+Le 3 creature de la mer est 14m et est le 2 Baleine (5,3)
+Le 4 creature de la mer a 9 tentacules couleur : grey et est le 1 Pieuvre (4,3)
+Le 5 creature de la mer est 19m et est le 3 Baleine (2,2)
+Le 6 creature de la mer est 15m et est le 4 Baleine (1,2)
+Le 7 creature de la mer est 4m et est le 5 Baleine (2,2)
+Le 8 creature de la mer est 1m et est le 6 Baleine (3,2)
+----- Étape 2 -----
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|Deche|     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |Deche|
+:-----:-----:-----:-----:-----:
+Les actions des Agents :
+Le Baleine 2 a manger le 1 Pieuvre
+Un Baleine a naissance près de la mère en (2, 2)
+Un Baleine a naissance près de la mère en (4, 2)
+Nombre d'agents: 8
+Le 1 creature de la mer est 8m et est le 1 Baleine (1,2)
+Le 3 creature de la mer est 14m et est le 2 Baleine (4,3)
+Le 5 creature de la mer est 19m et est le 3 Baleine (1,1)
+Le 6 creature de la mer est 15m et est le 4 Baleine (1,2)
+Le 7 creature de la mer est 4m et est le 5 Baleine (3,2)
+Le 8 creature de la mer est 1m et est le 6 Baleine (4,2)
+Le 9 creature de la mer est 2m et est le 7 Baleine (2,2)
+Le 10 creature de la mer est 1m et est le 8 Baleine (4,2)
+----- Étape 3 -----
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|Deche|     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |Deche|
+:-----:-----:-----:-----:-----:
+Les actions des Agents :
+Un Baleine a naissance près de la mère en (3, 2)
+Un Baleine a naissance près de la mère en (4, 1)
+Nombre d'agents: 10
+Le 1 creature de la mer est 8m et est le 1 Baleine (2,2)
+Le 3 creature de la mer est 14m et est le 2 Baleine (5,3)
+Le 5 creature de la mer est 19m et est le 3 Baleine (2,1)
+Le 6 creature de la mer est 15m et est le 4 Baleine (1,1)
+Le 7 creature de la mer est 4m et est le 5 Baleine (3,1)
+Le 8 creature de la mer est 1m et est le 6 Baleine (5,2)
+Le 9 creature de la mer est 2m et est le 7 Baleine (2,2)
+Le 10 creature de la mer est 1m et est le 8 Baleine (3,1)
+Le 11 creature de la mer est 3m et est le 9 Baleine (3,2)
+Le 12 creature de la mer est 1m et est le 10 Baleine (4,1)
+
+
+TEST 2
+Le ressource Dechet est dans (5, 1)
+Le ressource Dechet est dans (5, 2)
+----- Étape 1 -----
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|Deche|Deche|     |     |     |
+:-----:-----:-----:-----:-----:
+Les actions des Agents :
+Nombre d'agents: 6
+Le 1 creature de la mer est 19m et est le 1 Baleine (4,5)
+Le 2 creature de la mer est 4m et est le 1 Dauphin (3,2)
+Le 3 creature de la mer a 10 tentacules couleur : grey et est le 1 Pieuvre (2,4)
+Le 4 creature de la mer a 8 tentacules couleur : grey et est le 2 Pieuvre (2,3)
+Le 5 creature de la mer est 1m et est le 2 Dauphin (1,2)
+Le 6 creature de la mer est 5m et est le 3 Dauphin (4,2)
+----- Étape 2 -----
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|Deche|Deche|     |     |     |
+:-----:-----:-----:-----:-----:
+Les actions des Agents :
+Un Dauphin a naissance près de la mère en (5, 2)
+Nombre d'agents: 7
+Le 1 creature de la mer est 19m et est le 1 Baleine (2,5)
+Le 2 creature de la mer est 4m et est le 1 Dauphin (4,2)
+Le 3 creature de la mer a 10 tentacules couleur : grey et est le 1 Pieuvre (1,4)
+Le 4 creature de la mer a 8 tentacules couleur : grey et est le 2 Pieuvre (1,4)
+Le 5 creature de la mer est 1m et est le 2 Dauphin (1,2)
+Le 6 creature de la mer est 5m et est le 3 Dauphin (4,3)
+Le 7 creature de la mer est 1m et est le 4 Dauphin (5,2)
+----- Étape 3 -----
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|     |     |     |     |     |
+:-----:-----:-----:-----:-----:
+|Deche|Deche|     |     |     |
+:-----:-----:-----:-----:-----:
+Les actions des Agents :
+Nombre d'agents: 7
+Le 1 creature de la mer est 19m et est le 1 Baleine (4,4)
+Le 2 creature de la mer est 4m et est le 1 Dauphin (2,2)
+Le 3 creature de la mer a 10 tentacules couleur : grey et est le 1 Pieuvre (2,4)
+Le 4 creature de la mer a 8 tentacules couleur : grey et est le 2 Pieuvre (1,3)
+Le 5 creature de la mer est 1m et est le 2 Dauphin (1,2)
+Le 6 creature de la mer est 5m et est le 3 Dauphin (2,2)
+Le 7 creature de la mer est 1m et est le 4 Dauphin (5,2)
+
+
+TEST 3 
+Le ressource Dechet est dans (7, 5)
+Le ressource Dechet est dans (6, 5)
+Le ressource Dechet est dans (5, 5)
+Le ressource Dechet est dans (4, 3)
+Le ressource Dechet est dans (5, 3)
+----- Étape 1 -----
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |Deche|     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |Deche|     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+Les actions des Agents :
+Déplacement impossible: Deplacer hors Terrain !
+Nombre d'agents: 8
+Le 1 creature de la mer est 5m et est le 1 Dauphin (7,5)
+Le 2 creature de la mer a 10 tentacules couleur : grey et est le 1 Pieuvre (1,1)
+Le 3 creature de la mer a 8 tentacules couleur : grey et est le 2 Pieuvre (5,4)
+Le 4 creature de la mer est 4m et est le 2 Dauphin (7,4)
+Le 5 creature de la mer est 3m et est le 3 Dauphin (2,4)
+Le 6 creature de la mer est 4m et est le 4 Dauphin (1,4)
+Le 7 creature de la mer a 10 tentacules couleur : grey et est le 3 Pieuvre (6,2)
+Le 8 creature de la mer est 1m et est le 5 Dauphin (4,5)
+----- Étape 2 -----
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |Deche|     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |Deche|     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+Les actions des Agents :
+Le Dauphin 1 a manger le 2 Pieuvre
+Déplacement impossible: Deplacer hors Terrain !
+Déplacement impossible: Deplacer hors Terrain !
+Nombre d'agents: 7
+Le 1 creature de la mer est 5m et est le 1 Dauphin (5,4)
+Le 2 creature de la mer a 10 tentacules couleur : grey et est le 1 Pieuvre (2,1)
+Le 4 creature de la mer est 4m et est le 2 Dauphin (7,4)
+Le 5 creature de la mer est 3m et est le 3 Dauphin (2,5)
+Le 6 creature de la mer est 4m et est le 4 Dauphin (2,2)
+Le 7 creature de la mer a 10 tentacules couleur : grey et est le 3 Pieuvre (7,2)
+Le 8 creature de la mer est 1m et est le 5 Dauphin (5,5)
+----- Étape 3 -----
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |Deche|     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |Deche|     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+Les actions des Agents :
+Nombre d'agents: 7
+Le 1 creature de la mer est 5m et est le 1 Dauphin (4,6)
+Le 2 creature de la mer a 10 tentacules couleur : grey et est le 1 Pieuvre (2,2)
+Le 4 creature de la mer est 4m et est le 2 Dauphin (6,5)
+Le 5 creature de la mer est 3m et est le 3 Dauphin (1,5)
+Le 6 creature de la mer est 4m et est le 4 Dauphin (3,2)
+Le 7 creature de la mer a 10 tentacules couleur : grey et est le 3 Pieuvre (6,1)
+Le 8 creature de la mer est 1m et est le 5 Dauphin (4,5)
+----- Étape 4 -----
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |Deche|     |     |     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |Deche|     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+|     |     |     |     |Deche|     |     |
+:-----:-----:-----:-----:-----:-----:-----:
+Les actions des Agents :
+Un Dauphin a naissance près de la mère en (5, 5)
+Le pieuvre 1 a change leur couleur a green
+Déplacement impossible: Deplacer hors Terrain !
+Nombre d'agents: 8
+Le 1 creature de la mer est 5m et est le 1 Dauphin (4,5)
+Le 2 creature de la mer a 10 tentacules couleur : green et est le 1 Pieuvre (3,2)
+Le 4 creature de la mer est 4m et est le 2 Dauphin (7,5)
+Le 5 creature de la mer est 3m et est le 3 Dauphin (1,4)
+Le 6 creature de la mer est 4m et est le 4 Dauphin (2,2)
+Le 7 creature de la mer a 10 tentacules couleur : grey et est le 3 Pieuvre (6,1)
+Le 8 creature de la mer est 1m et est le 5 Dauphin (2,6)
+Le 9 creature de la mer est 2m et est le 6 Dauphin (5,5)
