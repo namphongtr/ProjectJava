@@ -90,18 +90,19 @@ public class Simulation {
             int lig = SimulationOutils.randomInt(terrain.nbLignes);
             int col = SimulationOutils.randomInt(terrain.nbColonnes);
             int type = SimulationOutils.randomInt(1);
+            
+            Ressource res = null; 
+
             if (type == 0) {
-                Algue algue = new Algue();
-                algue.setPosition(lig, col); // Mettre à jour les coordonnées de l'algue
-                terrain.setCase(lig, col, algue);
-                ressources.add(algue); // Ajouter l'algue à la liste des ressources
-                System.out.println("Le ressource Algue est dans (" + lig + ", " + col + ")");
+                res = new Algue();
             } else if (type == 1) {
-                Dechet dechet = new Dechet();
-                dechet.setPosition(lig, col); // Mettre à jour les coordonnées du déchet
-                terrain.setCase(lig, col, dechet);
-                ressources.add(dechet); // Ajouter le déchet à la liste des ressources
-                System.out.println("Le ressource Dechet est dans (" + lig + ", " + col + ")");
+                res = new Dechet();
+            }
+            if (res != null) {
+                res.setPosition(lig, col); 
+                terrain.setCase(lig, col, res);
+                ressources.add(res); 
+                System.out.println("Le ressource " + res.type + " est dans (" + lig + ", " + col + ")");
             }
         }
     }
